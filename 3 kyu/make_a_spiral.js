@@ -24,36 +24,46 @@ function spiralize (n) {
     while (topRow <= bottomRow && leftCol <= rightCol) {
     
     //top row
+    console.log(`starting top row from leftCol ${leftCol} to rightCol-counter ${rightCol-counter}`)
     for (let i = leftCol; i<=rightCol-counter; i++) {
       spiral[topRow+counter][i] = 1;
+      console.table(spiral);
     }
     topRow ++;
     
     //right hand side
+    console.log(`starting right hand side from topRow+counter ${topRow+counter} to bottomRow-counter ${bottomRow-counter}`)
     for (let i = topRow+counter; i<=bottomRow-counter; i++) {
       spiral[i][rightCol-counter] = 1;
+      console.table(spiral);
     }
     rightCol --;
     
     //bottom row
+    console.log(`starting bottom row from rightCol-counter ${rightCol-counter} to leftCol+counter ${leftCol+counter}`)
     for (let i = rightCol-counter; i>=leftCol+counter; i--) {
       spiral[bottomRow-counter][i] = 1;
+      console.table(spiral);
     }
     bottomRow--;
     
     
     //left hand side
-    if (counter === 0) {counter ++;}
+    if (counter === 0) {counter = 1}
+    console.log(`starting left hand side from bottomRow-counter ${bottomRow-counter} to topRow+counter ${topRow+counter}`)
     for (let i = bottomRow; i>=topRow+counter; i--) {
       spiral[i][leftCol] = 1;
+      console.table(spiral);
     }
     leftCol++;
 
       }
     
     
-    return spiral;
+    // return spiral;
   }
+
+  spiralize(8);
 
 //error messages
 
