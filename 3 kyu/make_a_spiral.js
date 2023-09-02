@@ -5,65 +5,68 @@
 
 
 function spiralize (n) {
-    //create counter variable
-    let counter = 0;
-      //create empty arrays
-    let spiral = [];
-    for (let i = 0; i<n; i++) {spiral.push([]);}
-    //fill arrays with zero
-    for (let i = 0; i<n; i++) {
-      for (let y = 0; y<spiral.length; y++) {spiral[i].push(0)}
-    }
-    
-    //create variables for easier logic
-    let topRow = 0;
-    let bottomRow = n-1;
-    let leftCol = 0;
-    let rightCol = n-1;
-    
-    while (topRow <= bottomRow && leftCol <= rightCol) {
-    
-    //top row
-    console.log(`starting top row from leftCol ${leftCol} to rightCol-counter ${rightCol-counter}`)
-    for (let i = leftCol; i<=rightCol-counter; i++) {
-      spiral[topRow+counter][i] = 1;
-      console.table(spiral);
-    }
-    topRow ++;
-    
-    //right hand side
-    console.log(`starting right hand side from topRow+counter ${topRow+counter} to bottomRow-counter ${bottomRow-counter}`)
-    for (let i = topRow+counter; i<=bottomRow-counter; i++) {
-      spiral[i][rightCol-counter] = 1;
-      console.table(spiral);
-    }
-    rightCol --;
-    
-    //bottom row
-    console.log(`starting bottom row from rightCol-counter ${rightCol-counter} to leftCol+counter ${leftCol+counter}`)
-    for (let i = rightCol-counter; i>=leftCol+counter; i--) {
-      spiral[bottomRow-counter][i] = 1;
-      console.table(spiral);
-    }
-    bottomRow--;
-    
-    
-    //left hand side
-    if (counter === 0) {counter = 1}
-    console.log(`starting left hand side from bottomRow-counter ${bottomRow-counter} to topRow+counter ${topRow+counter}`)
-    for (let i = bottomRow; i>=topRow+counter; i--) {
-      spiral[i][leftCol] = 1;
-      console.table(spiral);
-    }
-    leftCol++;
-
-      }
-    
-    
-    // return spiral;
+  //create counter variable
+  let counter = 0;
+    //create empty arrays
+  let spiral = [];
+  for (let i = 0; i<n; i++) {spiral.push([]);}
+  //fill arrays with zero
+  for (let i = 0; i<n; i++) {
+    for (let y = 0; y<spiral.length; y++) {spiral[i].push(0)}
   }
+  
+  //create variables for easier logic
+  let topRow = 0;
+  let bottomRow = n-1;
+  let leftCol = 0;
+  let rightCol = n-1;
+  
+  while (topRow <= bottomRow && leftCol <= rightCol) {
+  
+  //top row
+  console.log(`starting top row from leftCol ${leftCol} to rightCol-counter ${rightCol-counter}`)
+  for (let i = leftCol; i<=rightCol-counter; i++) {
+    spiral[topRow+counter][i] = 1;
+    console.table(spiral);
+  }
+  topRow ++;
+  console.log(`topRow is now ${topRow}`)
 
-  spiralize(8);
+  //right hand side
+  console.log(`starting right hand side from topRow+counter ${topRow+counter} to bottomRow-counter ${bottomRow-counter}`)
+  for (let i = topRow+counter; i<=bottomRow-counter; i++) {
+    spiral[i][rightCol-counter] = 1;
+    console.table(spiral);
+  }
+  rightCol --;
+  console.log(`rightCol is now ${rightCol}`)
+  
+  //bottom row
+  console.log(`starting bottom row from rightCol-counter ${rightCol-counter} to leftCol+counter ${leftCol+counter}`)
+  for (let i = rightCol-counter; i>=leftCol+counter; i--) {
+    spiral[bottomRow-counter][i] = 1;
+    console.table(spiral);
+  }
+  bottomRow--;
+  console.log(`bottomRow is now ${bottomRow}`)
+  
+  //left hand side
+  if (counter === 0) {counter = 1}
+  console.log(`starting left hand side from bottomRow ${bottomRow} to topRow+counter ${topRow+counter}`)
+  for (let i = bottomRow; i>=topRow+counter; i--) {
+    spiral[i][leftCol] = 1;
+    console.table(spiral);
+  }
+  leftCol++;
+  console.log(`leftCol is now ${leftCol}`)
+
+    }
+  
+  
+  // return spiral;
+}
+
+spiralize(4);
 
 //error messages
 
@@ -73,6 +76,7 @@ function spiralize (n) {
 
 //for n = 8:
 //expected 
+/*
 [ 
 [ 1, 1, 1, 1, 1, 1, 1, 1 ], 
 [ 0, 0, 0, 0, 0, 0, 0, 1 ], 
@@ -114,4 +118,4 @@ function spiralize (n) {
 [ 1, 0, 0, 0, 0, 1 ],
 [ 1, 1, 1, 1, 1, 1 ] 
 ]
-
+*/
