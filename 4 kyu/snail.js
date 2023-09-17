@@ -52,5 +52,7 @@ snail = function(array) {
     //each pass through the while loop will be 1 further in to the spiral  
       counter ++;
     }
+    console.table(results)
     return results;
 }
+

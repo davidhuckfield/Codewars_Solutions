@@ -66,7 +66,7 @@ function spiralize (n) {
   // return spiral;
 }
 
-spiralize(4);
+spiralize(8);
 
 //error messages
 
