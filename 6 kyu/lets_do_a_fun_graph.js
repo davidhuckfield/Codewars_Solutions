@@ -30,12 +30,8 @@ function graph(arr) {
     outerArray[i].push(" | " + numberLabel)
   }
 }
-
-    // console.table(outerArray);
-
 let joinedArray = outerArray.map(x=>x.join("")).join("\n");
-
-// console.log(joinedArray);
+console.log(joinedArray);
 return joinedArray;
 }
-  graph([10,5,3,1,4]);
+  graph([4,8,2,4,1,9,4,7]);
