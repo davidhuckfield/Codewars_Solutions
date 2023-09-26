@@ -1,4 +1,4 @@
-// link : https://www.codewars.com/kata/5121303128ef4b495f000001
+// link : https://www.codewars.com/kata/517b0f33cd023d848d000001
 
 var Warrior = function(name){
     this.name = name;  
