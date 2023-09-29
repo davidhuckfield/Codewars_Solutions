@@ -12,3 +12,9 @@ function strCount(str, letter){
     }
     return count;
   }
+
+  //innovative solution - split by the searched letter, count length of split array -1
+
+  function strCount(str, letter){  
+    return str.split(letter).length-1
+  }
