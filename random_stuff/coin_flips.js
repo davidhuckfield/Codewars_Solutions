@@ -19,7 +19,7 @@ function coinFlips(flips, run, initialBet) {
     //outer loop to perform the flips
         for (let i=0; i<flips; i++) {
 
-            //if random number is below 0.5, then heads, has been flipped
+            //if random number is below 0.5, then heads has been flipped
             if (Math.random() < 0.5) {
                 //increase the number of heads in a row by 1
                 headsrow++;
@@ -29,6 +29,8 @@ function coinFlips(flips, run, initialBet) {
                 if (headsrow > maxheadsrow) {
                     maxheadsrow = headsrow;
                 }
+                //resolve current bet 
+                
             }
 
             //otherwise, tails has been flipped
@@ -45,5 +47,5 @@ function coinFlips(flips, run, initialBet) {
         }
 }
 
-//call function with number of flips to perform
-coinFlips(10);
+//call function with number of flips to perform, run of heads or tails to bet at, and initial bet
+coinFlips(10, 3, 5);
