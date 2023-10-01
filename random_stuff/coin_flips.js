@@ -20,19 +20,20 @@ function coinFlips(flips, run, initialBet) {
     
     //declare current bet which may change, initialise it as initialBet input
     //declare currentChoice (heads or tails / H or T)
-    let currentBet = initialBet;
+    let currentBet = 0;
     let currentChoice = "";
 
     //outer loop to perform the flips
         for (let i=0; i<flips; i++) {
             //push a new array to the results array to store this round's results
             resultsArray.push([]);
-            resultsArray[i+1].push(currentChoice);
-            resultsArray[i+1].push(currentBet);
+            let currentRound = resultsArray[i+1];
+            currentRound.push(currentChoice);
+            currentRound.push(currentBet);
             //if random number is below 0.5, then heads has been flipped
             if (Math.random() < 0.5) {
                 //push the flip result to the results array
-                resultsArray[i+1].push("H");
+                currentRound.push("H");
                 //increase the count of heads
                 totalheads++;
                 //increase the number of heads in a row by 1
@@ -45,17 +46,17 @@ function coinFlips(flips, run, initialBet) {
                 }
                 //resolve current bet 
                 if (currentChoice == "H") {
-                    resultsArray[i+1].push("Win");
+                    currentRound.push("Win");
                     totalMoney += currentBet*2;
-                    resultsArray.push(currentBet*2);
-                    resultsArray.push(totalMoney);
+                    currentRound.push(currentBet*2);
+                    currentRound.push(totalMoney);
                     //update max money if necessary
                     if (totalMoney > maxMoney) {
                         maxMoney = totalMoney;
                     }
                 }
                 //push current run to results array
-                resultsArray[i+1].push(headsrow);
+                currentRound.push(headsrow);
                 //decide whether or not to place new bet based on run
                 if (headsrow >= run) {
                     currentBet = initialBet;
@@ -73,15 +74,15 @@ function coinFlips(flips, run, initialBet) {
                     currentChoice = "";    
                 }
                 //push next choice and bet to results array
-                resultsArray.push(currentChoice);
-                resultsArray.push(currentBet);
+                currentRound.push(currentChoice);
+                currentRound.push(currentBet);
                 
             }
 
             //otherwise, tails has been flipped
             else {
                 //push the flip result to the results array
-                resultsArray[i+1].push("T");
+                currentRound.push("T");
                 //increase the count of tails
                 totaltails++;
                 //increase the number of tails in a row by 1
@@ -94,17 +95,17 @@ function coinFlips(flips, run, initialBet) {
                 }
                 //resolve current bet 
                 if (currentChoice == "T") {
-                    resultsArray[i+1].push("Win");
+                    currentRound.push("Win");
                     totalMoney += currentBet*2;
-                    resultsArray.push(currentBet*2);
-                    resultsArray.push(totalMoney);
+                    currentRound.push(currentBet*2);
+                    currentRound.push(totalMoney);
                     //update max money if necessary
                     if (totalMoney > maxMoney) {
                         maxMoney = totalMoney;
                     }
                 }
                 //push current run to results array
-                resultsArray[i+1].push(tailsrow);
+                currentRound.push(tailsrow);
                 //decide whether or not to place new bet based on run
                 if (tailsrow >= run) {
                     currentBet = initialBet;
@@ -122,8 +123,8 @@ function coinFlips(flips, run, initialBet) {
                     currentChoice = "";    
                 }
                 //push next choice and bet to results array
-                resultsArray.push(currentChoice);
-                resultsArray.push(currentBet);
+                currentRound.push(currentChoice);
+                currentRound.push(currentBet);
             }
         }
 
