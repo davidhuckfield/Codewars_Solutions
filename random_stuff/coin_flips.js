@@ -11,7 +11,7 @@ function coinFlips(flips, run, initialBet) {
     //declare results array to store detailed results of each flip
     let resultsArray = [];
     //push the first row of the results array, which is the column headings
-    resultsArray.push(["Choice", "Bet", "Flip", "Result", "Money change", "Total Money", "Current Run", "Next choice", "Next bet"]);
+    resultsArray.push(["Choice", "Bet", "Flip", "Result", "Money change", "Total Money", "Current Run", "Next choice", "Next bet", "Total Money"]);
     
     //declare variables for total money, max money reached, and min money reached
     let totalMoney = 0;
@@ -55,6 +55,16 @@ function coinFlips(flips, run, initialBet) {
                         maxMoney = totalMoney;
                     }
                 }
+                else if (currentChoice == "T") {
+                    currentRound.push("Lose");
+                    currentRound.push(0);
+                    currentRound.push(totalMoney);
+            }
+                else {
+                    currentRound.push("");
+                    currentRound.push(0);
+                    currentRound.push(totalMoney);
+                }
                 //push current run to results array
                 currentRound.push(headsrow);
                 //decide whether or not to place new bet based on run
@@ -76,6 +86,7 @@ function coinFlips(flips, run, initialBet) {
                 //push next choice and bet to results array
                 currentRound.push(currentChoice);
                 currentRound.push(currentBet);
+                currentRound.push(totalMoney);
                 
             }
 
@@ -104,6 +115,16 @@ function coinFlips(flips, run, initialBet) {
                         maxMoney = totalMoney;
                     }
                 }
+                else if (currentChoice == "H") {
+                    currentRound.push("Lose");
+                    currentRound.push(0);
+                    currentRound.push(totalMoney);
+            }
+                else {
+                    currentRound.push("");
+                    currentRound.push(0);
+                    currentRound.push(totalMoney);
+                }
                 //push current run to results array
                 currentRound.push(tailsrow);
                 //decide whether or not to place new bet based on run
@@ -125,6 +146,7 @@ function coinFlips(flips, run, initialBet) {
                 //push next choice and bet to results array
                 currentRound.push(currentChoice);
                 currentRound.push(currentBet);
+                currentRound.push(totalMoney);
             }
         }
 
@@ -140,4 +162,4 @@ function coinFlips(flips, run, initialBet) {
 }
 
 //call function with number of flips to perform, run of heads or tails to bet at, and initial bet
-coinFlips(10, 3, 5);
+coinFlips(100, 3, 5);
