@@ -27,8 +27,12 @@ function coinFlips(flips, run, initialBet) {
         for (let i=0; i<flips; i++) {
             //push a new array to the results array to store this round's results
             resultsArray.push([]);
+            resultsArray[i+1].push(currentChoice);
+            resultsArray[i+1].push(currentBet);
             //if random number is below 0.5, then heads has been flipped
             if (Math.random() < 0.5) {
+                //push the flip result to the results array
+                resultsArray[i+1].push("H");
                 //increase the count of heads
                 totalheads++;
                 //increase the number of heads in a row by 1
@@ -41,17 +45,23 @@ function coinFlips(flips, run, initialBet) {
                 }
                 //resolve current bet 
                 if (currentChoice == "H") {
+                    resultsArray[i+1].push("Win");
                     totalMoney += currentBet*2;
+                    resultsArray.push(currentBet*2);
+                    resultsArray.push(totalMoney);
                     //update max money if necessary
                     if (totalMoney > maxMoney) {
                         maxMoney = totalMoney;
                     }
                 }
+                //push current run to results array
+                resultsArray[i+1].push(headsrow);
                 //decide whether or not to place new bet based on run
                 if (headsrow >= run) {
                     currentBet = initialBet;
                     currentChoice = "T";
                     totalMoney -= currentBet;
+                    
                     //update min money if necessary
                     if (totalMoney < minMoney) {
                         minMoney = totalMoney;
@@ -62,11 +72,16 @@ function coinFlips(flips, run, initialBet) {
                     currentBet = 0;
                     currentChoice = "";    
                 }
+                //push next choice and bet to results array
+                resultsArray.push(currentChoice);
+                resultsArray.push(currentBet);
                 
             }
 
             //otherwise, tails has been flipped
             else {
+                //push the flip result to the results array
+                resultsArray[i+1].push("T");
                 //increase the count of tails
                 totaltails++;
                 //increase the number of tails in a row by 1
@@ -79,17 +94,23 @@ function coinFlips(flips, run, initialBet) {
                 }
                 //resolve current bet 
                 if (currentChoice == "T") {
+                    resultsArray[i+1].push("Win");
                     totalMoney += currentBet*2;
+                    resultsArray.push(currentBet*2);
+                    resultsArray.push(totalMoney);
                     //update max money if necessary
                     if (totalMoney > maxMoney) {
                         maxMoney = totalMoney;
                     }
                 }
+                //push current run to results array
+                resultsArray[i+1].push(tailsrow);
                 //decide whether or not to place new bet based on run
                 if (tailsrow >= run) {
                     currentBet = initialBet;
                     currentChoice = "H";
                     totalMoney -= currentBet;
+
                     //update min money if necessary
                     if (totalMoney < minMoney) {
                         minMoney = totalMoney;
@@ -100,13 +121,12 @@ function coinFlips(flips, run, initialBet) {
                     currentBet = 0;
                     currentChoice = "";    
                 }
+                //push next choice and bet to results array
+                resultsArray.push(currentChoice);
+                resultsArray.push(currentBet);
             }
         }
 
-        let testarray = [
-            ["Choice", "Bet", "Flip", "Result", "Money change", "Total Money", "Current Run", "Next choice", "Next bet"],
-            [currentChoice, currentBet, "H", "H", currentBet, totalMoney, headsrow, "T", initialBet],
-        ];
 
         console.log("Max heads in a row: " + maxheadsrow);
         console.log("Max tails in a row: " + maxtailsrow);
@@ -115,8 +135,8 @@ function coinFlips(flips, run, initialBet) {
         console.log("Total tails: " + totaltails);
         console.log("Max money: " + maxMoney);
         console.log("Min money: " + minMoney);
-        console.table(testarray);
+        console.table(resultsArray);
 }
 
 //call function with number of flips to perform, run of heads or tails to bet at, and initial bet
-coinFlips(100, 3, 5);
+coinFlips(10, 3, 5);
