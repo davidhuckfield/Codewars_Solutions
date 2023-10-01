@@ -59,6 +59,7 @@ function coinFlips(flips, run, initialBet) {
                     currentRound.push("Lose");
                     currentRound.push(0);
                     currentRound.push(totalMoney);
+                    currentBet *= 2;
             }
                 else {
                     currentRound.push("");
@@ -69,7 +70,7 @@ function coinFlips(flips, run, initialBet) {
                 currentRound.push(headsrow);
                 //decide whether or not to place new bet based on run
                 if (headsrow >= run) {
-                    currentBet = initialBet;
+                    currentBet = Math.max(currentBet, initialBet);
                     currentChoice = "T";
                     totalMoney -= currentBet;
                     
@@ -119,6 +120,7 @@ function coinFlips(flips, run, initialBet) {
                     currentRound.push("Lose");
                     currentRound.push(0);
                     currentRound.push(totalMoney);
+                    currentBet *= 2;
             }
                 else {
                     currentRound.push("");
@@ -129,7 +131,7 @@ function coinFlips(flips, run, initialBet) {
                 currentRound.push(tailsrow);
                 //decide whether or not to place new bet based on run
                 if (tailsrow >= run) {
-                    currentBet = initialBet;
+                    currentBet = Math.max(currentBet, initialBet);
                     currentChoice = "H";
                     totalMoney -= currentBet;
 
@@ -150,7 +152,8 @@ function coinFlips(flips, run, initialBet) {
             }
         }
 
-
+        //print results to console
+        console.log("Total flips: " + flips);
         console.log("Max heads in a row: " + maxheadsrow);
         console.log("Max tails in a row: " + maxtailsrow);
         console.log("Total money: " + totalMoney);
@@ -162,4 +165,4 @@ function coinFlips(flips, run, initialBet) {
 }
 
 //call function with number of flips to perform, run of heads or tails to bet at, and initial bet
-coinFlips(100, 3, 5);
+coinFlips(50, 3, 5);
