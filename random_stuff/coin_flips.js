@@ -165,4 +165,4 @@ function coinFlips(flips, run, initialBet) {
 }
 
 //call function with number of flips to perform, run of heads or tails to bet at, and initial bet
-coinFlips(50, 3, 5);
+coinFlips(1000, 3, 5);
