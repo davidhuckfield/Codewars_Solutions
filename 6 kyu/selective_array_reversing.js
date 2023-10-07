@@ -23,7 +23,7 @@ function selReverse(array, length) {
 
   //other solution using for loop, accounts for ending portions because giving an end coordinate to slice which is greater than the array end will just return the rest of the array
 
-  function selReverse(array, length) {
+  function selReverse2(array, length) {
     const returnArray = [];
     for (let i = 0; i < array.length; i += length) {
       const currentSlice = array.slice(i, i + length);
@@ -34,5 +34,6 @@ function selReverse(array, length) {
   }
 
 
-  console.log(selReverse([2,4,6,8,10,12,14,16], 3))
+  console.log(selReverse([2,4,6,8,10,12,14,16], 3));
+  console.log(selReverse2([2,4,6,8,10,12,14,16], 3));
 
