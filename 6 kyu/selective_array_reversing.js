@@ -34,6 +34,38 @@ function selReverse(array, length) {
   }
 
 
-  console.log(selReverse([2,4,6,8,10,12,14,16], 3));
-  console.log(selReverse2([2,4,6,8,10,12,14,16], 3));
+  //THIS ONE FINALLY WORKED!!!
+  function selReverse3(array, length) {
+    if (length === 0) {return array;}
+    let returnArray = [];
+    console.log(`returnArray is ${returnArray}`)
+    let start=0;
+    console.log(`start is ${start}`)
+    let end=Math.min(start+length-1, array.length-1);
+    console.log(`end is ${end}`)
+    
+    while (end <= array.length-1) {
+    for (let i=end; i>= start; i--) {
+      returnArray.push(array[i]);
+      console.log(`returnArray is now ${returnArray}`)
+    }
+    start += length;
+    console.log(`start is now ${start}`)
+    if (end === array.length-1) {
+      break;
+    }
+    end = Math.min(start+length-1, array.length-1);
+    console.log(`end is now ${end}`)
+   
+      }
+    return returnArray;
+  }
+
+ 
+  
+
+
+  // console.log(selReverse([2,4,6,8,10,12,14,16], 3));
+  // console.log(selReverse2([2,4,6,8,10,12,14,16], 3));
+  console.log(selReverse3([2,4,6,8,10,12,14,16], 3));
 
