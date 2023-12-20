@@ -1,0 +1,6 @@
+// link : https://www.codewars.com/kata/5708f682c69b48047b000e07
+
+function multiply(number){
+    let digits = Math.abs(number).toString().length;
+    return number * Math.pow(5, digits);
+  }
