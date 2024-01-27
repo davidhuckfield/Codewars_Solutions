@@ -11,3 +11,9 @@ function numberOfRectangles(m, n) {
   }
 
   console.log(numberOfRectangles(4,4));
+
+  //more efficient solution: 
+
+  function numberOfRectangles(m, n) {
+    return (m * m + m) * (n * n + n) / 4;
+  }
