@@ -35,7 +35,7 @@ function maxRot(n) {
         resultsArray.push(currentNumber);
     }
     
-    //use the spread operator to get the highest number in the results aray and return it
+    //use the spread operator to get the highest number in the results array and return it
     return Math.max(...resultsArray);
   }
 
