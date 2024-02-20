@@ -7,39 +7,55 @@
 //return the value of D 
 
 function alphabet(ns) {
-  const A = Math.min(...ns);
-  console.log(`A is ${A}`);
+    console.log(ns);
+      let A = Math.min(...ns);
+      console.log(`A is ${A}`);
 
-  const CxD = Math.max(...ns);
-  console.log(`CxD is ${CxD}`);
+      let CxD = Math.max(...ns);
+      console.log(`CxD is ${CxD}`);
 
-  let sortedList = [...ns].sort((a,b) => a-b);
+      let filtered = ns.filter(num => num!==A && num!==CxD);
+      console.log(`list with A and CxD filtered out is ${filtered}`);
 
-  console.log(`this is the sortedList - ${sortedList}`);
+      let possibleBorD = [];
 
-  sortedList = sortedList.filter(n => n!==A && n !== CxD);
+      console.log(`B or D for loop starts:`);
+      for (let i=0; i<filtered.length; i++) {
+        let firstHalf = filtered.slice(0,i);
+        let secondHalf = filtered.slice(i+1);
+        let combined = [...firstHalf, ...secondHalf];
+        console.log(`current value is ${filtered[i]}`);
+        console.log(`combined list excluding current value is ${combined}`);
+        if (combined.includes(filtered[i]*A)) {
+          possibleBorD.push(filtered[i]);
+        }
+      }
+      possibleBorD = [...new Set(possibleBorD)];
+      console.log(`possible B or D list is ${possibleBorD}`);
+      
+      if (possibleBorD.length<=2) {return Math.max(...possibleBorD);}
 
-  console.log(`this is sortedList after removing highest & lowest = ${sortedList}`);
+      let possibleCs = [];
 
-  let possibleBorD = [];
+      console.log(`C for loop starts:`);
+      for (let i=0; i<filtered.length; i++) {
+        let firstHalf = filtered.slice(0,i);
+        let secondHalf = filtered.slice(i+1);
+        let combined = [...firstHalf, ...secondHalf];
+        for (let y=0; y<possibleBorD.length; y++) {
+            if (filtered[i]!==possibleBorD[y] && combined.includes(filtered[i]*possibleBorD[y])) {
+                possibleCs.push(filtered[i]);
+            }
+        }
+      }
+      let D = CxD / possibleCs[0];
 
-  for (let i=0; i<sortedList.length; i++) {
-    if (ns.includes(A*sortedList[i])) {
-        possibleBorD.push(sortedList[i]);
+      return D;
+
+      
     }
-  }
-
-  possibleBorD = [...new Set(possibleBorD)];
-  console.log(`possible B or D is ${possibleBorD}`);
-
-  const D = Math.max(...possibleBorD);
-
-
-
-  return D;
-
-}
 
 //expected answer 4
-console.log(alphabet([2,3,4,1,12,6,2,4]));
+// console.log(alphabet([2,3,4,1,12,6,2,4]));
 // console.log(alphabet([2,6,7,3,14,35,15,5]));
+console.log(alphabet([20,10,6,5,4,3,2,12]));
