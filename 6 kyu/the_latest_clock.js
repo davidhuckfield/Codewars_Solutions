@@ -70,3 +70,47 @@ function latestClock(a, b, c, d) {
 
   //21:59
   console.log(latestClock(9,1,2,5));
+
+
+  //alternate solution:
+
+  /*
+
+  function latestClock(a, b, c, d) {
+  const times = [
+    `${a}${b}:${c}${d}`,
+    `${a}${b}:${d}${c}`,
+    `${a}${c}:${b}${d}`,
+    `${a}${c}:${d}${b}`,
+    `${a}${d}:${b}${c}`,
+    `${a}${d}:${c}${b}`,
+    `${b}${a}:${c}${d}`,
+    `${b}${a}:${d}${c}`,
+    `${b}${c}:${a}${d}`,
+    `${b}${c}:${d}${a}`,
+    `${b}${d}:${a}${c}`,
+    `${b}${d}:${c}${a}`,
+    `${c}${a}:${b}${d}`,
+    `${c}${a}:${d}${b}`,
+    `${c}${b}:${a}${d}`,
+    `${c}${b}:${d}${a}`,
+    `${c}${d}:${a}${b}`,
+    `${c}${d}:${b}${a}`,
+    `${d}${a}:${b}${c}`,
+    `${d}${a}:${c}${b}`,
+    `${d}${b}:${a}${c}`,
+    `${d}${b}:${c}${a}`,
+    `${d}${c}:${a}${b}`,
+    `${d}${c}:${b}${a}`,
+  ];
+  const time = times.filter(el => {
+    const test = el.split(":")
+    if (test[0] >= 24) return false
+    if (test[1] >= 60) return false
+    return true
+  })
+  time.sort((a, b) =>  (b.split(":")[0] - a.split(":")[0] || b.split(":")[1] - a.split(":")[1]))
+  return time[0]
+}
+
+*/
