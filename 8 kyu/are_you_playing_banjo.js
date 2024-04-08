@@ -5,3 +5,9 @@ function areYouPlayingBanjo(name) {
     else {return `${name} does not play banjo`;}
   
   }
+
+
+function areYouPlayingBanjo(name) {
+    return (name.charAt(0)==="R" || name.charAt(0)==="r") ? `${name} plays banjo` : `${name} does not play banjo`;
+  
+  }
