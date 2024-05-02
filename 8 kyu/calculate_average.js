@@ -10,3 +10,10 @@ function findAverage(array) {
    }}
    return sum/array.length;
  }
+
+/*
+function findAverage(array) {
+    let sum = array.reduce((acc, curr) => acc + curr, 0);
+    return (sum / array.length);
+   
+ }
