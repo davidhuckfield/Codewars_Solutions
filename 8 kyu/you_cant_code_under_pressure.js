@@ -12,3 +12,8 @@ function doubleInteger(i) {
   function doubleInteger(i) {
     return i * 2;
   }
+// solution 3
+
+function doubleInteger(i) {
+    return i+i;
+}
