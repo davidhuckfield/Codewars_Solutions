@@ -4,3 +4,8 @@ function evenOrOdd(number) {
     if (number%2 != 0) {return "Odd";}
     else {return "Even";}
   }
+
+/*
+function evenOrOdd(number) {
+return number%2===0 ? "Even" : "Odd";
+}
