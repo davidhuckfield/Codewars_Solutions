@@ -1,4 +1,5 @@
 function tenGreenBottles(n) {
+   if (n>9999999) {return "number too large!"}
     let returnString = "";
 
     function numberToText (number) {
