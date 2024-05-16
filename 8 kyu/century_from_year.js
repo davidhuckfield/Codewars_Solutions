@@ -11,3 +11,18 @@ function century(year) {
         return Math.floor(year / 100) + 1;
       }
     }
+
+/*
+function century(year) {
+    switch (true) {
+        case year <= 0:
+            return "not a valid year";
+        case year <= 100:
+            return 1;
+        case year % 100 === 0:
+            return year / 100;
+        default:
+            return Math.floor(year / 100) + 1;
+    }
+}
+*/
