@@ -6,4 +6,4 @@ function recursive(a) {
     }
 }
 
-recursive(1);
+recursive(100);
