@@ -17,3 +17,11 @@ function testit(s) {
   }
     return wordCount;
 }
+
+/* Shorter method with regex:
+
+function testit(s) {
+  return (s.match(/w.*?o.*?r.*?d/ig) || []).length;
+}
+
+*/
