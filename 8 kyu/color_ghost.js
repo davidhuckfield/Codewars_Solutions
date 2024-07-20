@@ -13,4 +13,5 @@ var Ghost = function() {
       color = "red";
     }
     this.color = color;
+// color=color?
   };
