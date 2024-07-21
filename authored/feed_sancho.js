@@ -5,7 +5,7 @@ Feed Sancho!
 
 Sancho the tortoise can only eat fruits & vegetables. He can't eat meat or dairy.
 
-You have to sort through all the food objects in the fridge and only return the foods that Sancho can eat.
+You have to iterate through all the food objects in the fridge and only return the foods that Sancho can eat.
 
 Write a function that takes an array of objects and returns a new array with only the food objects whose type is fruits or vegetables.
 
