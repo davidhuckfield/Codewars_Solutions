@@ -13,3 +13,11 @@ function canSnailReachEnd(length, speed, lengthIncreases) {
     }
   return false;
 }
+
+//better / more efficient solution:
+/*
+function canSnailReachEnd(length, speed, lengthIncreases) {
+  return lengthIncreases < speed
+    && (length / (speed - lengthIncreases) < 365.25 * 24 * 60);
+}
+*/
