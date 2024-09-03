@@ -9,3 +9,4 @@ def can_snail_reach_end(length, speed, length_increases):
         if snail_position >= rubber_band_end:
             return True
     return False
+# capitals for Boolean values
