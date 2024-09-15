@@ -89,7 +89,7 @@ function tenGreenBottles(n) {
 
   
 
-console.log(tenGreenBottles(20));
+console.log(tenGreenBottles(200));
 
 
 
