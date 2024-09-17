@@ -2,6 +2,7 @@
 
 public class Bio {
     public String dnaToRna(String dna) {
+        //replace T with U
         String rna = dna.replace("T", "U");
       return rna;
     } 
