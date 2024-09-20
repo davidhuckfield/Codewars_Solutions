@@ -3,12 +3,18 @@
 function crap(x, bags, cap){
   let current=0;
   for (let i=0; i<x.length; i++) {
-    if (x[i].includes("D")) {
+    for (let y=0; y<x[i].length; y++) {
+    if (x[i][y]==="D") {
       return "Dog!!";
     }
+      }
+  }
+  
+  for (let i=0; i<x.length; i++) {
     for (let y=0; y<x[i].length; y++) {
       if (x[i][y]==="@") {
         current++;
+        if (bags===0) {return "Cr@p";}
         if (cap===0) {return "Cr@p";}
         if (current===cap) {
           if (bags>0) {
