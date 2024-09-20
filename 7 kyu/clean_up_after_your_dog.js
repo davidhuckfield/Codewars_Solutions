@@ -30,3 +30,11 @@ function crap(x, bags, cap){
   }
   return "Clean";
 }
+
+//more efficient solution
+/*
+function crap(x, bags, cap){
+  var yard = x.reduce( (a, b) => a.concat(b) );
+  return yard.includes('D') ? 'Dog!!' : bags * cap - yard.filter( val => val === '@' ).length > 0 ? 'Clean' : 'Cr@p';
+}
+*/
