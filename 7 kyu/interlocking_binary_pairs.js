@@ -14,3 +14,10 @@ function interlockable(a, b) {
   }
   return interlocking;
 }
+
+//better solution - bitwise AND
+/*
+function interlockable(a, b) {
+  return !(a & b);
+}
+*/
