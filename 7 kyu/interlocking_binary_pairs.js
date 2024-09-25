@@ -16,6 +16,7 @@ function interlockable(a, b) {
 }
 
 //better solution - bitwise AND
+//a & b checks if numbers are interlocking binary pairs
 /*
 function interlockable(a, b) {
   return !(a & b);
