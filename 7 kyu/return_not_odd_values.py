@@ -7,3 +7,9 @@ def no_odds(values):
             return_values.append(val)
     return return_values
     
+# alternate solution
+
+# returns the values array with only those entries that meet the condition in the loop
+
+def no_odds2(values):
+    return [i for i in values if i % 2 == 0]
