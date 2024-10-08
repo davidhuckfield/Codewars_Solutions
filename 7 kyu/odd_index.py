@@ -1,4 +1,4 @@
-# link : 
+# link : https://www.codewars.com/kata/5983cba828b2f1fd55000114/train/python
 
 def odd_one(arr):
     odd_index=-1
