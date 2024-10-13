@@ -6,4 +6,7 @@ def abbrev_name(name):
     initials += names[0][0].upper()
     initials += "."
     initials += names[1][0].upper()
+    print(initials)
     return initials
+
+abbrev_name("Dave Huckfield")
