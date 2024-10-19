@@ -2,6 +2,12 @@
 
 # should work according to instructions but currently failing some tests
 
+# Rules for Nesting:
+
+# List A can be nested inside List B if:
+# The minimum value in List A is greater than the minimum value in List B.
+# The maximum value in List A is smaller than the maximum value in List B.
+
 def matryoshka(lst):
     print(lst)
     nestable = True
