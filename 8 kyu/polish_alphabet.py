@@ -11,3 +11,8 @@ def correct_polish_letters(st):
     st = st.replace('ź', 'z')
     st = st.replace('ż', 'z')
     return st
+
+#better solution
+
+def correct_polish_letters2(s):
+    return s.translate(str.maketrans("ąćęłńóśźż", "acelnoszz"))
