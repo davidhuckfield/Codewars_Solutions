@@ -3,7 +3,8 @@
 import math
 
 def decipher(code):
-    print(f"code is {code}")
+    for i in range(len(code)):
+        print(f"code {i} is {code[i]}")
     return_string = ""
     for i in range(len(code[0])):
         print(f"*** outer loop at index {i} ***")
@@ -13,11 +14,15 @@ def decipher(code):
             print(f"i index is {i} and y index is {y}")
             print(f"character is {code[y][i]}")
             print(f"code is {ord(code[y][i])-96}")
-            sum+=max(ord(code[y][i])-96, 0)
-            print(f"sum is now {sum}")
+            if (code[y][i]) != " ":
+                sum+=max(ord(code[y][i])-96, 0)
+                print(f"sum is now {sum}")
         average = math.floor(sum/len(code))
         print(f"average is {average}")
-        character = chr(average)
+        if average == 0:
+            character = " "
+        else:
+            character = chr(average+96)
         print(f"avg character is {character}")
         return_string+=character
         print(f"return_string is now {return_string}")
