@@ -5,32 +5,21 @@
 animals = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"]
 elements = ["Wood", "Fire", "Earth", "Metal", "Water"]
 
+#from preloaded import animals, elements
+
 def chinese_zodiac(year):
-    print(year)
-    # print(animals)
-    # print(elements)
-    ref_year = 1984
-    ref_animal = "Rat"
-    ref_element = "Wood"
+    years_since_1984 = year - 1984
+
+    #calculating remainder with modulo calculates how many times 12 "fits into" the year difference, because every change of exactly 12 years returns to the original index
+    #the remainder is how many positions the index will actually move - as the reference index is 0, this is also the index itself
+    animal_index = years_since_1984 % 12
+    animal = animals[animal_index]
+
+    #same modulo calculation but floor divide by 2, eg a difference of one year will be no change, a difference of 2 years will result in an index increase of 1
+    element_index = (years_since_1984 // 2) % 5
+    element = elements[element_index]
     
-    animal_cycle_length = len(animals)
-    element_cycle_length = len(elements)
-    
-    ref_index_animal = animals.index(ref_animal)
-    ref_index_element = elements.index(ref_element)
-    
-    year_difference = year - ref_year
-    
-    animal_index = (ref_index_animal + year_difference) % animal_cycle_length
-    animal_index = animal_index if animal_index >=0 else animal_index + animal_cycle_length
-    target_animal = animals[animal_index]
-    
-    element_index = (ref_index_element + year_difference) % element_cycle_length
-    element_index = element_index if element_index >=0 else element_index + element_cycle_length
-    target_element = elements[element_index]
-    
-    return_text = target_element + " " + target_animal
-    return return_text
+    return f"{element} {animal}"
 
 print("1965 should be Wood Snake, it's:")
 print(chinese_zodiac(1965))
