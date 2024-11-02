@@ -21,4 +21,13 @@ def domain_name(url):
     dot_pos = trunc_url.find(".")
 
     return trunc_url[0:dot_pos]
+
+#alternative solution - remove http/www etc by replacing with empty string:
+
+def domain_name2(url):
+    url = url.replace('www.','')
+    url = url.replace('https://','')
+    url = url.replace('http://','')
+    
+    return url[0:url.find('.')]
     
