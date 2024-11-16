@@ -22,6 +22,7 @@ def solution(n):
         return ""
     return_string = ""
     for key,value in roman_numerals.items():
+        #continue to add the letter to the string and reduce the number until n is less than the current value
         while n >= value:
             return_string+=key
             n-=value
