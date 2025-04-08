@@ -1,6 +1,6 @@
 # link : http://codewars.com/kata/51f1342c76b586046800002a/train/python
 
-import math
+import math #need math import to use floor
 
 def solution(n):
     #multiply by 2 to shift the scale 
