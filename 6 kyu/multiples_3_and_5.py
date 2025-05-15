@@ -16,12 +16,10 @@ def solution(number):
         return k * p * (p+1) // 2
     return sum_of_multiples(3) + sum_of_multiples(5) - sum_of_multiples(15)
 
-
-
-
 print(solution(10))
 print(solution(20))
 print(solution(100))
 print(solution(200))
 print(solution(1000))
 print(solution(10000))
+print(solution(1000000000000000000000))
