@@ -2,6 +2,8 @@
 
 def connect_the_dots(paper):
 
+    print(f"Original paper is {paper}")
+
     unique_chars = list({char for row in paper for char in row if char != " " and char !="\n"})
     unique_chars.sort()
     print (f"Unique characters are {unique_chars}")
@@ -21,9 +23,11 @@ def connect_the_dots(paper):
     def path(start, directions):
         pass
 
-    print(get_directions("a"))
-    print(get_directions("b"))
+    print(get_coords("a"))
+    print(get_coords("b"))
     print(get_directions(get_coords("a"), get_coords("b")))
+
+    print("\n".join(paper))
     return ""
 
 connect_the_dots(
