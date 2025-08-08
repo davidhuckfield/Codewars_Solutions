@@ -4,7 +4,7 @@ def validate_ean(code):
     if len(code) != 13:
         return False
     sum = 0
-    for i in range(len(code)):
+    for i in range(len(code)-1):
         if i%2 == 0:
             sum += int(code[i])
         else:
@@ -15,7 +15,7 @@ def validate_ean(code):
     else:
         checksum = (10 - (sum % 10))
     print(checksum)
-    if checksum == code[12]:
+    if checksum == int(code[12]):
         return True
     else:
         return False
